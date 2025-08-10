@@ -5,9 +5,9 @@ import path from "path";
 
 // Cloudinary config
 cloudinary.v2.config({
-  cloud_name: "picturetv",
-  api_key: "255698863444547",
-  api_secret: "8bwtyfPj-gTlv8Nabkfjtn1nioI",
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 /**

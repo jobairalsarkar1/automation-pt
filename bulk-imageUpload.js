@@ -21,8 +21,8 @@ const STATIC_METADATA = {
   capturedBy: "Maserati Of Manhattan With Timo Weiland",
   captureDate: new Date().toISOString(), // Frontend sends ISO string
   tags: "Party,Cocktail,Lunch", // Frontend sends comma-separated string
-  price: "85", // Frontend sends string
-  isForSale: "true", // Frontend sends string-boolean
+  price: "85",
+  isForSale: "true",
   eventId: "6899094bb4fef29705dda902", // Frontend uses eventId
   authorId: "6896f37a93a1d284a9fc21ae", // Must be valid admin user ID
 };
@@ -79,13 +79,11 @@ async function saveToDatabase(metadata) {
       {
         headers: {
           "Content-Type": "application/json",
-          // Add other headers your frontend uses if needed
         },
       }
     );
     return response.data;
   } catch (error) {
-    // Enhanced error logging
     const errorData = error.response?.data || { error: error.message };
     console.error("API Error Details:", JSON.stringify(errorData, null, 2));
     throw error;
@@ -131,7 +129,6 @@ async function processImages(jsonFilePath) {
           imageUrl,
           cloudinaryId,
           thumbnailUrl,
-          // captureDate already in correct ISO format
         };
 
         console.log("Sending data:", JSON.stringify(metadata, null, 2));
